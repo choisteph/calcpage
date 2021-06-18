@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset='utf-8' />
+    <title>MI Safe Start Map - Calculator</title>
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  
+     <!-- BOOTSTRAP 5 CSS -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    
+    <!-- CSS links -->
+    <link rel="stylesheet" href="css/main.css">
+  
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  </head>
+  <body>
+    <nav id="sitenav" class="navbar navbar-expand-md navbar-dark">
+      <div class="container-fluid">
+        <!-- navbar brand -->
+        <a class="navbar-brand" href="index.html">
+          <img id="navbrand-img"src="img/favicon.png" alt="logo for MI START MAP" class="d-inline-block align-text-top">MI Safe Start Map
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Calculating Risk Levels</a>
+            </li>
+            <li class="nav-item me-auto">
+              <a class="nav-link" aria-label="back to dashboard"  href="https://mistartmap.info/" target="
+              _blank">Back to the Dashboard</a>
+            </li>
+          </ul> <!--close navbar-nav-->
+        </div>
+      </div>
+    </nav>
+
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-12 text-center">
+            <h1 class="topheader">Welcome to the MI Safe Start Map Risk Calculator</h1>
+            <p class="aside">A calculator to help you see what your risk levels are</p>
+          </div> <!--close col-12-->
+        </div> <!--close row-->
+        <main id="maincontent">
+          <div class="row mainContentRow">
+            <div class="col-6 calculatorCol">
+              <div class="calculatorDiv">
+                <h3 class="calcHeader text-center">Cases</h3>
+                <form onsubmit="calculateCaseRiskLevel()">
+                  <div class="form-group row">
+                    <div class="form-group col-sm-6">
+                      <label for="inputMSMcase">MI START MAP LEVEL - NEW CASES</label>
+                      <select id="inputfieldMSMcase" class="form-control">
+                        <option>Low - A</option>
+                        <option>B - C </option>
+                        <option>D</option>
+                        <option>E</option>
+                      </select>
+                    </div> <!--close form-group col-6-->
+                    <div class="col-sm-6 resultsCol">
+                      <h4 class="cdcHead">CDC Results:</h4>
+
+                        <p id="cdcCaseResult"></p>
+                    </div> <!--close col-6 resultsCol-->
+                  </div> <!--close form-row-->
+                  <button type="submit" class = "btn submitbutton" onclick = "calculateCaseRiskLevel()">Calculate Risk Level</button>
+                  </form>
+                  <h3 class="calcHeader text-center">Positivity</h3>
+                  <form onsubmit="calculatePosRiskLevel()">
+                    <div class="form-group row">
+                      <div class="form-group col-sm-6">
+                        <label for="inputMSMpos">MI START MAP LEVEL - POSITIVITY</label>
+                        <select id="inputfieldMSMpos" class="form-control">
+                          <option>Low</option>
+                          <option>A </option>
+                          <option>B</option>
+                          <option>C-E</option>
+                        </select>
+                      </div> <!--close form-group col-6-->
+                      <div class="col-sm-6 resultsCol">
+                        <h4 class="cdcHead">CDC Results:</h4>
+                        <h5 class="cdcSubHead"></h5>
+                          <p id="cdcPosResult"></p>
+                      </div> <!--close col-6 resultsCol-->
+                    </div> <!--close form-row-->
+                    <button type="submit" class = "btn submitbutton" onclick = "calculatePosRiskLevel()">Calculate Risk Level</button>
+                </form> <!--close form-->
+              </div> <!--close calculatorDiv-->
+            </div> <!--close col-6 calculatorCol-->
+            <div class="col-6 explainerCol text-center">
+              <h2>Risk Levels</h2>
+            </div> <!--close col-6 explainerCol-->
+          </div> <!--close row mainContentRow-->
+        </main> <!--close main-->
+      </div> <!--close container-fluid-->
+     <!-- BOOSTRAP JS -->
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+     
+    <!-- javascript files -->
+    <script src='js/calculator.js'></script>
+  </body>
+</html>

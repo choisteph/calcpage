@@ -1,0 +1,71 @@
+body{
+  font-family: Montserrat,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+  font-size: 1rem;
+  font-weight:400;
+
+}
+/* navigation bar styling */
+#sitenav{
+  background-color:#0487bd;
+}
+#navbrand-img{
+  height: 32px;
+  padding: 0;
+  margin: 0;
+  padding-right: 10px;
+}
+.navbar-dark .navbar-nav .nav-link{
+  color: rgba(255,255,255,0.8)
+}
+
+.nav-link:hover{
+  background-color: #006687;
+}
+
+.navbar-brand{
+  font-weight: 500;
+}
+
+/* page styling */
+
+.topheader{
+  font-size: 1.75rem;
+  font-weight: 700;
+  padding: 15px 0px;
+}
+
+.calcHeader{
+  font-size: 1.5rem;
+  font-weight: 500;
+
+}
+.aside{
+  font-size: .9rem;
+}
+
+.explainerCol{
+    background-color: rgb(245, 241, 241);
+}
+
+form{
+  padding: 10px;
+}
+
+.cdcHead{
+  font-size: 1.2rem;
+}
+
+.resultsCol{
+  background-color: #0485bd0a;
+  padding: 3px;
+}
+
+.submitbutton{
+  margin: 15px 0px;
+  border: 1.5px solid gray;
+  /* color: #0487bd; */
+}
+
+.submitbutton:hover{
+  border: 2px solid black;
+}
