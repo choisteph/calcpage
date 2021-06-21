@@ -2,13 +2,12 @@ body{
   font-family: Montserrat,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
   font-size: 1rem;
   font-weight:400;
-
 }
-
 
 h2{
   font-size: 1.5rem;
 }
+
 /* navigation bar styling */
 #sitenav{
   background-color:#0487bd;
@@ -51,10 +50,6 @@ h2{
 }
 .aside{
   font-size: .9rem;
-}
-
-.explainerCol{
-    /* background-color: rgb(245, 241, 241); */
 }
 
 .calcDiv{
