@@ -23,6 +23,7 @@ function calculateCaseRiskLevel(){
     calcedD = weeklyCases * 10 / 7
     roundedD = Math.round(calcedD)
     // console.log("rounded Daily given weekly", roundedD)
+    document.querySelector("#inputfieldDailyCase").value = roundedD
   }
   // if we have MI Start Map instead:
   if (dailyCases){
@@ -30,6 +31,7 @@ function calculateCaseRiskLevel(){
     calcedW = dailyCases * 7 / 10
     roundedW = Math.round(calcedW)
     // console.log("rounded Weeklyy given daily", roundedW)
+    document.querySelector("#inputfieldWeeklyCase").value = roundedW
   }
 
   // populating results bar based on what numbers we were given:
