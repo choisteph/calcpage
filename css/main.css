@@ -37,6 +37,7 @@ body{
 .calcHeader{
   font-size: 1.5rem;
   font-weight: 500;
+  margin: 0;
 
 }
 .aside{
@@ -47,12 +48,26 @@ body{
     background-color: rgb(245, 241, 241);
 }
 
-form{
-  padding: 10px;
+.calcDiv{
+  padding: 5px 0px;
 }
 
-.cdcHead{
+form{
+  padding: 0px 10px;
+}
+
+.form-group{
+  padding: 5px 0px;
+}
+
+#or{
+  font-weight: 700;
+  margin: 0;
+  padding: 10 0;
+}
+.resultHead{
   font-size: 1.2rem;
+
 }
 
 .resultsCol{
@@ -68,4 +83,45 @@ form{
 
 .submitbutton:hover{
   border: 2px solid black;
+}
+
+.riskLevelH{
+  font-weight: 700;
+  font-size:1rem;
+}
+
+#cdcCaseResult, #msmCaseResult, #cdcPosResult, #msmPosResult{
+  padding: 0px 10px;
+}
+
+.lowCDC{
+  color: #749cd2;
+}
+.modCDC{
+  color: #f6eb14;
+}
+.subCDC{
+  color: #f8991d;
+}
+.highCDC{
+  color: #ed2024;
+}
+
+.lowMSM{
+  color: #bed5e6;
+}
+.aMSM{
+  color: #a0bddc;
+}
+.bMSM{
+  color: #8b96c8;
+}
+.cMSM{
+  color: #8c6db0;
+}
+.dMSM{
+  color: #8a4399;
+}
+.eMSM{
+  color: #6a2469;
 }
