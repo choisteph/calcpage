@@ -1,5 +1,5 @@
 function calculateCaseRiskLevel(){
-  console.log("calculate case");
+  // console.log("calculate case");
   event.preventDefault();
 
 
@@ -19,17 +19,17 @@ function calculateCaseRiskLevel(){
 
   // in the case we have CDC:
   if (weeklyCases){
-    console.log("weekly cases:", weeklyCases)
+    // console.log("weekly cases:", weeklyCases)
     calcedD = weeklyCases * 10 / 7
     roundedD = Math.round(calcedD)
-    console.log("rounded Daily given weekly", roundedD)
+    // console.log("rounded Daily given weekly", roundedD)
   }
   // if we have MI Start Map instead:
   if (dailyCases){
-    console.log("daily cases:", dailyCases)
+    // console.log("daily cases:", dailyCases)
     calcedW = dailyCases * 7 / 10
     roundedW = Math.round(calcedW)
-    console.log("rounded Weeklyy given daily", roundedW)
+    // console.log("rounded Weeklyy given daily", roundedW)
   }
 
   // populating results bar based on what numbers we were given:
@@ -91,7 +91,7 @@ function calculateCaseRiskLevel(){
 }
 
 function calculatePosRiskLevel(){
-  console.log("calculate pos");
+  // console.log("calculate pos");
   event.preventDefault();
 
 
@@ -100,7 +100,7 @@ function calculatePosRiskLevel(){
 
 
   let posTests = document.querySelector("#inputfieldPercentPos").value
-  console.log(posTests)
+  // console.log(posTests)
   if (posTests < 5){
     valCDCposResult.innerHTML = '<h5 class="riskLevelH"><i class="fas fa-square lowCDC"></i> Low</h5> <p>< 5% positive of last 7 days of tests</p>'
   } else if (posTests >= 5 && posTests < 8){

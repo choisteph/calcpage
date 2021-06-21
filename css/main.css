@@ -4,6 +4,11 @@ body{
   font-weight:400;
 
 }
+
+
+h2{
+  font-size: 1.5rem;
+}
 /* navigation bar styling */
 #sitenav{
   background-color:#0487bd;
@@ -29,13 +34,17 @@ body{
 /* page styling */
 
 .topheader{
-  font-size: 1.75rem;
+  font-size: 1.9rem;
   font-weight: 700;
   padding: 15px 0px;
 }
 
+#thresholdComparison{
+  width: 100%;
+}
+
 .calcHeader{
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 500;
   margin: 0;
 
