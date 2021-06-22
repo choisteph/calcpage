@@ -53,7 +53,8 @@
         </div> <!--close row-->
         <main id="maincontent">
           <div class="row mainContentRow">
-            <div class="col-md-6 calculatorCol">
+            <div class="col-md-1 bufferCol"></div>
+            <div class="col-md-5 calculatorCol">
               <div class="calculatorDiv">
                 <div class="calcDiv">
                   <h3 class="calcHeader">Cases</h3>
@@ -98,7 +99,7 @@
                           </div> <!--close input-group-->
                         </div> <!--close form-group-->
                         <button type="submit" class = "btn submitbutton" onclick = "calculatePosRiskLevel()">Calculate Risk Level</button>
-                      </div> <!-- col-6-->
+                      </div> <!-- col-5-->
                       <div class="col-md-6 resultsCol">
                         <h4 class="resultHead">CDC Indicator Results:</h4>
                           <div id="cdcPosResult"></div>
@@ -106,17 +107,17 @@
                           <div id="msmPosResult"></div>  
                       </div> <!--close col-6 resultsCol-->
                     </div> <!--close form-row-->
-
                 </form> <!--close form-->
                 </div> <!--close calcDiv-->
               </div> <!--close calculatorDiv-->
             </div> <!--close col-6 calculatorCol-->
-            <div class="col-md-6 explainerCol text-center d-flex align-items-center justify-content-center">
+            <div class="col-md-5 explainerCol text-center d-flex align-items-center justify-content-center">
               <div class="thresholdsDiv">
                 <h2>Comparing new CDC school thresholds to MI levels</h2>
                 <img id="thresholdComparison" src="img/crpp.png" alt="a comparison between the case and percent positive thresholds used by the CDC and by MI Safe Start Map">
               </div>
-            </div> <!--close col-6 explainerCol-->
+            </div> <!--close col-5 explainerCol-->
+            <div class="col-md-1 bufferCol"></div>
           </div> <!--close row mainContentRow-->
         </main> <!--close main-->
       </div> <!--close container-fluid-->
@@ -139,7 +140,6 @@
  
         } else if ($(e.target).attr('id') === 'inputfieldWeeklyCase'){
           // console.log("clicked weekly cases input field")
-
           $('#inputfieldDailyCase').attr('disabled', true);
           $('#inputfieldDailyCase').val('');
           $('#inputfieldWeeklyCase').attr('disabled', false);
@@ -149,7 +149,17 @@
           $('#inputfieldDailyCase').attr('disabled', false);
           $('#inputfieldWeeklyCase').attr('disabled', false);
         }
-      });       
+      });
+      
+
+      $('#inputfieldDailyCase').on('focus', function(){
+        $('#inputfieldDailyCase').removeClass('calculatedResult')
+      })
+      $('#inputfieldWeeklyCase').on('focus', function(){
+        $('#inputfieldWeeklyCase').removeClass('calculatedResult')
+
+      })
+      
     </script>
   </body>
 </html>

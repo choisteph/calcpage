@@ -24,6 +24,9 @@ function calculateCaseRiskLevel(){
     roundedD = Math.round(calcedD)
     // console.log("rounded Daily given weekly", roundedD)
     document.querySelector("#inputfieldDailyCase").value = roundedD
+    document.querySelector("#inputfieldDailyCase").classList.add('calculatedResult')
+    document.querySelector("#inputfieldWeeklyCase").classList.remove('calculatedResult')
+    
   }
   // if we have MI Start Map instead:
   if (dailyCases){
@@ -32,6 +35,8 @@ function calculateCaseRiskLevel(){
     roundedW = Math.round(calcedW)
     // console.log("rounded Weeklyy given daily", roundedW)
     document.querySelector("#inputfieldWeeklyCase").value = roundedW
+    document.querySelector("#inputfieldWeeklyCase").classList.add('calculatedResult')
+    document.querySelector("#inputfieldDailyCase").classList.remove('calculatedResult')
   }
 
   // populating results bar based on what numbers we were given:
@@ -88,8 +93,7 @@ function calculateCaseRiskLevel(){
     }
   }
 
-  // document.querySelector('#caseForm').reset()
-  
+  // document.querySelector('#caseForm').reset()  
 }
 
 function calculatePosRiskLevel(){
@@ -128,4 +132,5 @@ function calculatePosRiskLevel(){
   }  
 
   // document.querySelector('#posForm').reset()
+  
 }

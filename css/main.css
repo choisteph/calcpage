@@ -98,6 +98,12 @@ form{
   padding: 0px 10px;
 }
 
+.calculatedResult{
+  font-weight: 500; 
+  font-style: italic; 
+  background-color: #0485bd0a;
+}
+
 .lowCDC{
   color: #749cd2;
 }
