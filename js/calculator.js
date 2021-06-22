@@ -106,7 +106,7 @@ function calculatePosRiskLevel(){
   if (posTests < 5){
     valCDCposResult.innerHTML = '<h5 class="riskLevelH"><i class="fas fa-square lowCDC"></i> Low</h5> <p>< 5% positive of last 7 days of tests</p>'
   } else if (posTests >= 5 && posTests < 8){
-    valCDCposResult.innerHTML = '<h5 class="riskLevelH"><i class="fas fa-square modCDC"></i> Moderate</h5><p>5 - < 8% positive of last 7 days of tests</p>'
+    valCDCposResult.innerHTML = '<h5 class="riskLevelH"><i class="fas fa-square modCDC"></i> Moderate</h5><p>5 - 8% positive of last 7 days of tests</p>'
   } else if (posTests >= 8 && posTests < 10){
     valCDCposResult.innerHTML = '<h5 class="riskLevelH"><i class="fas fa-square subCDC"></i> Substantial</h5><p>8 - 10% positive of last 7 days of tests</p>'
   } else if (posTests >= 10){
