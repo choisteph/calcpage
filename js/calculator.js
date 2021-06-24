@@ -1,7 +1,6 @@
 function calculateCaseRiskLevel(){
   // console.log("calculate case");
-  event.preventDefault();
-
+  e.preventDefault();
 
   valCDCcaseResult = document.querySelector("#cdcCaseResult");
   valMSMcaseResult = document.querySelector("#msmCaseResult");

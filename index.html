@@ -1,165 +1,574 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset='utf-8' />
     <title>MI Safe Start Map - Calculator</title>
     <link rel="icon" type="image/png" href="img/favicon.png">
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-  
-     <!-- BOOTSTRAP 5 CSS -->
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    
-    <!-- CSS links -->
-    <link rel="stylesheet" href="css/main.css">
-  
+
+    <!-- BOOTSTRAP 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- google fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <nav id="sitenav" class="navbar navbar-expand-md navbar-dark">
-      <div class="container-fluid">
-        <!-- navbar brand -->
-        <a class="navbar-brand" href="index.html">
-          <img id="navbrand-img"src="img/favicon.png" alt="logo for MI START MAP" class="d-inline-block align-text-top">MI Safe Start Map
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Calculating Risk Levels</a>
-            </li>
-            <li class="nav-item me-auto">
-              <a class="nav-link" aria-label="back to dashboard"  href="https://mistartmap.info/" target="
-              _blank">Back to the Dashboard</a>
-            </li>
-          </ul> <!--close navbar-nav-->
-        </div>
-      </div>
-    </nav>
 
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-sm-12 text-center">
-            <h1 class="topheader">Welcome to the MI Safe Start Map Risk Calculator</h1>
-            <p class="aside">A calculator to translate between the CDC Transmission indicators and the MI Safe Start Map Risk Levels. </p>
-            <p class="aside">These algorithms both use <b>the worse level</b> of the cases indicator and the test positivity indicator to calculate the final result</p>
-          </div> <!--close col-12-->
-        </div> <!--close row-->
-        <main id="maincontent">
-          <div class="row mainContentRow">
-            <div class="col-md-1 bufferCol"></div>
-            <div class="col-md-5 calculatorCol">
-              <div class="calculatorDiv">
-                <div class="calcDiv">
-                  <h3 class="calcHeader">Cases</h3>
-                  <form id="caseForm" onsubmit="calculateCaseRiskLevel()">
-                    <div class="form-group row">
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label for="inputWeeklyCase">Weekly Cases per 100,000 Population</label>
-                          <input type = "number" id="inputfieldWeeklyCase" class="form-control" min="0" placeholder="Enter value..." aria-label="weekly cases per 100 thousand population">
-                          </input>
-                        </div> <!--close form-group-->
-                        <p id="or">or</p>
-                        <div class="form-group">
-                          <label for="inputDailyCase">Daily Cases per Million Population (7-Day Average)</label>
-                          <input type = "number" id="inputfieldDailyCase" class="form-control" min="0" placeholder="Enter value..." aria-label="daily cases per million population">
-                          </input>
-                        </div> <!--close form-group-->
-                        <button type="submit" class = "btn submitbutton" onclick = "calculateCaseRiskLevel()">Calculate Risk Level</button>
-                      </div> <!--close col-6-->
-                      <div class="col-md-6 resultsCol">
-                        <h4 class="resultHead">CDC Indicator Results:</h4>
-                          <div id="cdcCaseResult"></div>
-                        <h4 class="resultHead">MI Safe Start Map Results:</h4>
-                          <div id="msmCaseResult"></div>    
-                      </div> <!--close col-6 resultsCol-->
-                    </div> <!--close form-row-->
-                    </form>
-                </div> <!--close calcDiv-->
-                <div class="calcDiv">
-                  <h3 class="calcHeader">Test Positivity</h3>
-                  <form id="posForm" onsubmit="calculatePosRiskLevel()">
-                    <div class="form-group row">
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label for="inputPercentPos">Percent Positive Tests</label>
-                          <div class="input-group mb-3">
-                            <input type="number" id="inputfieldPercentPos" class="form-control" aria-label="percent positive tests" placeholder="Enter value..." min="0" max="100">
-                              <div class="input-group-append">
-                                <span class="input-group-text">%</span>
-                              </div>
-                            </input>
-                          </div> <!--close input-group-->
-                        </div> <!--close form-group-->
-                        <button type="submit" class = "btn submitbutton" onclick = "calculatePosRiskLevel()">Calculate Risk Level</button>
-                      </div> <!-- col-5-->
-                      <div class="col-md-6 resultsCol">
-                        <h4 class="resultHead">CDC Indicator Results:</h4>
-                          <div id="cdcPosResult"></div>
-                        <h4 class="resultHead">MI Safe Start Map Results:</h4>
-                          <div id="msmPosResult"></div>  
-                      </div> <!--close col-6 resultsCol-->
-                    </div> <!--close form-row-->
-                </form> <!--close form-->
-                </div> <!--close calcDiv-->
-              </div> <!--close calculatorDiv-->
-            </div> <!--close col-6 calculatorCol-->
-            <div class="col-md-5 explainerCol text-center d-flex align-items-center justify-content-center">
+    <style>
+        body{
+            font-family: Montserrat,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+            font-size: 1rem;
+            font-weight:400;
+        }
+
+        h2{
+            font-size: 1.5rem;
+        }
+
+        /* navigation bar styling */
+        #sitenav{
+            background-color:#0487bd;
+        }
+        #navbrand-img{
+            height: 32px;
+            padding: 0;
+            margin: 0;
+            padding-right: 10px;
+        }
+        .navbar-dark .navbar-nav .nav-link{
+            color: rgba(255,255,255,0.8)
+        }
+
+        .nav-link:hover{
+            background-color: #006687;
+        }
+
+        .navbar-brand{
+            font-weight: 500;
+        }
+
+        /* page styling */
+
+        .topheader{
+            font-size: 1.9rem;
+            font-weight: 700;
+            padding: 15px 0px;
+        }
+
+        #thresholdComparison{
+            width: 100%;
+        }
+
+        .calcHeader{
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin: 0;
+
+        }
+        .aside{
+            font-size: .9rem;
+        }
+
+        .calcDiv{
+            padding: 5px 0px;
+        }
+
+        form{
+            padding: 0px 10px;
+        }
+
+        .form-group{
+            padding: 5px 0px;
+        }
+
+        #or{
+            font-weight: 700;
+            margin: 0;
+            padding: 10 0;
+        }
+        .resultHead{
+            font-size: 1.2rem;
+
+        }
+
+        .resultsCol{
+            background-color: #0485bd0a;
+            padding: 3px;
+        }
+
+        .submitbutton{
+            margin: 15px 0px;
+            border: 1.5px solid gray;
+            /* color: #0487bd; */
+        }
+
+        .submitbutton:hover{
+            border: 2px solid black;
+        }
+
+        .riskLevelH{
+            font-weight: 700;
+            font-size:1rem;
+        }
+
+        .calculatedResult{
+            font-weight: 500;
+            font-style: italic;
+            background-color: #0485bd0a;
+        }
+
+        .LowCDC{
+            color: #749cd2;
+        }
+        .ModerateCDC{
+            color: #f6eb14;
+        }
+        .SubstantialCDC{
+            color: #f8991d;
+        }
+        .HighCDC{
+            color: #ed2024;
+        }
+
+        .LowMSM{
+            color: #bed5e6;
+        }
+        .AMSM{
+            color: #a0bddc;
+        }
+        .BMSM{
+            color: #8b96c8;
+        }
+        .CMSM{
+            color: #8c6db0;
+        }
+        .DMSM{
+            color: #8a4399;
+        }
+        .EMSM{
+            color: #6a2469;
+        }
+        .unknownMSM {
+            color: #70706F;
+        }
+        td.mi-start-map {
+            background: #f6f7f9;
+        }
+        td {
+            border-left: 1px solid black;
+            border-bottom: 1px solid black;
+        }
+        input,.input-group-text {
+            border-radius: 0 !important;
+            border: 1px solid black !important;
+        }
+        td:first-child {
+            border-left: none;
+        }
+        td:last-child {
+            border-right: none;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        .mainContentRow {
+            padding: 20px;
+        }
+        .input-container {
+            padding-left: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container-fluid">
+  <main id="maincontent">
+      <div class="row mainContentRow">
+          <div>
+              A calculator to translate between the CDC Transmission Indicators and the MI Safe Start Map Risk Levels. The MI Start Map team is still working on displaying live CDC Transmission Indicators alongside the MI Start Map Risk Levels.
+              <h5 class="mt-3"><strong>How do I use this tool?</strong></h5>
+              To translate MI Safe Start Map risk levels into CDC risk levels:
+              <ul>
+                  <li>
+                      Select a region and a date on MI Safe Start Map
+                  </li>
+                  <li>
+                      Take the Daily Cases Per Million Population for that region and date from MI Safe Start Map, and input it in “Daily Cases Per Million...”
+                  </li>
+                  <li>
+                      Take the positive tests rate for a region from MI Safe Start Map, and input it in “Percent Positive Tests”
+                  </li>
+                  <li>
+                      To calculate the regions overall risk level, both test and case information must be entered. The algorithms use the respective <strong>worse level</strong> of the 2 calculated as their overall.
+                  </li>
+              </ul>
+          </div>
+
+          <table class="table">
+              <thead>
+              <tr>
+                  <th scope="col"></th>
+                  <th scope="col">
+                      <h3>MI Safe Start Map Results</h3>
+                  </th>
+                  <th scope="col">
+                      <h3>CDC Indicator Results</h3>
+                  </th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                  <td>
+                      <h3 class="mb-0"><strong>Overall Risk Levels:</strong></h3>
+                  </td>
+                  <td class="mi-start-map">
+                      <h5 class="riskLevelH mt-2" id="overallMSMRisk"><i class="fas fa-square unknownMSM"></i><strong> N/A</strong></h5>
+                  </td>
+                  <td>
+                      <h5 class="riskLevelH mt-2" id="overallCDCRisk"><i class="fas fa-square unknownMSM"></i><strong> N/A</strong></h5>
+                  </td>
+              </tr>
+              <tr>
+                  <td>
+                      <h3 class="calcHeader"><strong>Cases</strong></h3>
+                      <form id="caseForm" onsubmit="calculateCaseRiskLevel()">
+                          <div class="form-group row">
+                              <div class="col-md-12 input-container">
+                                  <div class="form-group">
+                                      <label for="inputDailyCase">Daily Cases per Million Population <br>(7-Day Average)</label>
+                                      <input type = "number" id="inputfieldDailyCase" onInput="onCaseKeyUp(this)" class="form-control" min="0" placeholder="Enter a value..." aria-label="daily cases per million population">
+                                      </input>
+                                  </div> <!--close form-group-->
+                                  <div class="form-group">
+                                      <label for="inputWeeklyCase">Weekly Cases per 100,000 Population</label>
+                                      <input type = "number" id="inputfieldWeeklyCase" onInput="onCaseKeyUp(this)" class="form-control" min="0" placeholder="Enter a value..." aria-label="weekly cases per 100 thousand population">
+                                      </input>
+                                  </div> <!--close form-group-->
+                              </div> <!--close col-6-->
+                          </div> <!--close form-row-->
+                      </form>
+                  </td>
+                  <td class="mi-start-map">
+                      <div id="msmCaseResult">
+                          <h5 class="riskLevelH"><i class="fas fa-square unknownMSM"></i><strong> N/A</strong></h5>
+                          Enter a value
+                      </div>
+                  </td>
+                  <td>
+                      <div id="cdcCaseResult">
+                          <h5 class="riskLevelH"><i class="fas fa-square unknownMSM"></i><strong> N/A</strong></h5>
+                          Enter a value
+                      </div>
+                  </td>
+              </tr>
+              <tr>
+                  <td>
+                      <h3 class="calcHeader"><strong>Test Positivity</strong></h3>
+                      <form id="posForm" onsubmit="calculatePosRiskLevel()">
+                          <div class="form-group row">
+                              <div class="col-md-12 input-container">
+                                  <div class="form-group">
+                                      <label for="inputPercentPos">Percent Positive Tests</label>
+                                      <div class="input-group mb-3">
+                                          <input type="number" id="inputfieldPercentPos" onInput="onPosRiskLevelChange(this)" class="form-control" aria-label="percent positive tests" placeholder="Enter a value..." min="0" max="100">
+                                          <div class="input-group-append">
+                                              <span class="input-group-text">%</span>
+                                          </div>
+                                          </input>
+                                      </div> <!--close input-group-->
+                                  </div> <!--close form-group-->
+                              </div> <!-- col-5-->
+                          </div> <!--close form-row-->
+                      </form> <!--close form-->
+                  </td>
+                  <td class="mi-start-map">
+                      <div id="msmPosResult">
+                          <h5 class="riskLevelH"><i class="fas fa-square unknownMSM"></i><strong> N/A</strong></h5>
+                          Enter a value
+                      </div>
+                  </td>
+                  <td>
+                      <div id="cdcPosResult">
+                          <h5 class="riskLevelH"><i class="fas fa-square unknownMSM"></i><strong> N/A</strong></h5>
+                          Enter a value
+                      </div>
+                  </td>
+              </tr>
+              </tbody>
+          </table>
+
+          <div class="col-md-12">
               <div class="thresholdsDiv">
-                <h2>Comparing new CDC school thresholds to MI levels</h2>
-                <img id="thresholdComparison" src="img/crpp.png" alt="a comparison between the case and percent positive thresholds used by the CDC and by MI Safe Start Map">
+                  <h5><strong>Comparing new CDC school thresholds to MI levels</strong></h5>
+                  <img id="thresholdComparison"  src="{% static "images/calculator_table.png" %}" alt="a comparison between the case and percent positive thresholds used by the CDC and by MI Safe Start Map">
               </div>
-            </div> <!--close col-5 explainerCol-->
-            <div class="col-md-1 bufferCol"></div>
-          </div> <!--close row mainContentRow-->
-        </main> <!--close main-->
-      </div> <!--close container-fluid-->
-     <!-- BOOSTRAP JS -->
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-     <!-- JQUERY -->
-     <script
+          </div> <!--close col-5 explainerCol-->
+      </div> <!--close row mainContentRow-->
+  </main> <!--close main-->
+</div> <!--close container-fluid-->
+<!-- BOOSTRAP JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+<!-- JQUERY -->
+<script
       src="https://code.jquery.com/jquery-3.6.0.min.js"
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
       crossorigin="anonymous"></script>
-    <!-- javascript files -->
-    <script src='js/calculator.js'></script>
-    <script>
-      $('html').click(function(e) {   
-        if($(e.target).attr('id') === 'inputfieldDailyCase'){
-          // console.log("clicked daily cases input field")
-          $('#inputfieldWeeklyCase').attr('disabled', true);    
-          $('#inputfieldWeeklyCase').val('');        
-          $('#inputfieldDailyCase').attr('disabled', false);
- 
-        } else if ($(e.target).attr('id') === 'inputfieldWeeklyCase'){
-          // console.log("clicked weekly cases input field")
-          $('#inputfieldDailyCase').attr('disabled', true);
-          $('#inputfieldDailyCase').val('');
-          $('#inputfieldWeeklyCase').attr('disabled', false);
+<!-- javascript files -->
+<script type="text/javascript">
+function onCaseKeyUp(element){
+  let weeklyCases
+  let dailyCases
 
-        } else {
-          // console.log("clicked neither")
-          $('#inputfieldDailyCase').attr('disabled', false);
-          $('#inputfieldWeeklyCase').attr('disabled', false);
-        }
-      });
-      
+  valCDCcaseResult = document.querySelector("#cdcCaseResult");
+  valMSMcaseResult = document.querySelector("#msmCaseResult");
 
-      $('#inputfieldDailyCase').on('focus', function(){
-        $('#inputfieldDailyCase').removeClass('calculatedResult')
-      })
-      $('#inputfieldWeeklyCase').on('focus', function(){
-        $('#inputfieldWeeklyCase').removeClass('calculatedResult')
+  if (element === document.querySelector("#inputfieldWeeklyCase")) {
+    // weekly cases = CDC numbers
+    weeklyCases = document.querySelector("#inputfieldWeeklyCase").value;
+  }
 
-      })
-      
-    </script>
-  </body>
+  if (element === document.querySelector("#inputfieldDailyCase")) {
+    // daily cases = MI Start Map numbers
+    dailyCases = document.querySelector("#inputfieldDailyCase").value;
+  }
+
+  let calcedW = 0
+  let calcedD = 0
+  let roundedD = 0
+  let roundedW = 0
+
+  // in the case we have CDC:
+  if (weeklyCases){
+    // console.log("weekly cases:", weeklyCases)
+    calcedD = weeklyCases * 10 / 7
+    roundedD = Math.round(calcedD)
+    // console.log("rounded Daily given weekly", roundedD)
+    document.querySelector("#inputfieldDailyCase").value = roundedD
+    document.querySelector("#inputfieldDailyCase").classList.add('calculatedResult')
+    document.querySelector("#inputfieldWeeklyCase").classList.remove('calculatedResult')
+
+  }
+  // if we have MI Start Map instead:
+  if (dailyCases){
+    // console.log("daily cases:", dailyCases)
+    calcedW = dailyCases * 7 / 10
+    roundedW = Math.round(calcedW)
+    // console.log("rounded Weeklyy given daily", roundedW)
+    document.querySelector("#inputfieldWeeklyCase").value = roundedW
+    document.querySelector("#inputfieldWeeklyCase").classList.add('calculatedResult')
+    document.querySelector("#inputfieldDailyCase").classList.remove('calculatedResult')
+  }
+
+  // populating results bar based on what numbers we were given:
+  if (weeklyCases){
+    if (weeklyCases < 10){
+      valCDCcaseResult.innerHTML = '<h5 class="riskLevelH"><i class="fas fa-square LowCDC"></i> Low</h5> <p>< 10 new cases per 100,000 over last 7 days</p>'
+    } else if (weeklyCases >= 10 && weeklyCases < 50){
+      valCDCcaseResult.innerHTML = '<h5 class="riskLevelH"><i class="fas fa-square ModerateCDC"></i> Moderate</h5><p>10 - 49 new cases per 100,000 over last 7 days</p>'
+    } else if (weeklyCases >= 50 && weeklyCases < 100){
+      valCDCcaseResult.innerHTML = '<h5 class="riskLevelH"><i class="fas fa-square SubstantialCDC"></i> Substantial</h5><p>50 - 99 new cases per 100,000 over last 7 days</p>'
+    } else if (weeklyCases >= 100){
+      valCDCcaseResult.innerHTML = '<h5 class="riskLevelH"><i class="fas fa-square HighCDC"></i> High</h5><p>&#8805; 100 new cases per 100,000 over last 7 days</p>'
+    }
+
+    if (roundedD < 7){
+      valMSMcaseResult.innerHTML = '<h5 class="riskLevelH"><i class="fas fa-square LowMSM"></i> Low</h5> <p>< 7 average daily cases per million'
+    } else if (roundedD >= 7 && roundedD < 20){
+      valMSMcaseResult.innerHTML = '<h5 class="riskLevelH"><i class="fas fa-square AMSM"></i> Risk Level A</h5> <p>7 - 20 average daily cases per million'
+    } else if (roundedD >= 20 && roundedD < 40){
+      valMSMcaseResult.innerHTML = '<h5 class="riskLevelH"><i class="fas fa-square BMSM"></i> Risk Level B</h5> <p>20 - 40 average daily cases per million'
+    } else if (roundedD >= 40 && roundedD < 70){
+      valMSMcaseResult.innerHTML = '<h5 class="riskLevelH"><i class="fas fa-square CMSM"></i> Risk Level C</h5> <p>40 - 70 average daily cases per million'
+    } else if (roundedD >= 70 && roundedD < 150){
+      valMSMcaseResult.innerHTML = '<h5 class="riskLevelH"><i class="fas fa-square DMSM"></i> Risk Level D</h5> <p>70 - 150 average daily cases per million'
+    } else if (roundedD >= 150){
+      valMSMcaseResult.innerHTML = '<h5 class="riskLevelH"> <i class="fas fa-square EMSM"></i> Risk Level E</h5> <p>&#8805; 150 average daily cases per million'
+    }
+
+  }
+
+  if (dailyCases){
+    if (dailyCases < 7){
+      valMSMcaseResult.innerHTML = '<h5 class="riskLevelH"><i class="fas fa-square LowMSM"></i> Low</h5> <p>< 7 average daily cases per million'
+    } else if (dailyCases >= 7 && dailyCases < 20){
+      valMSMcaseResult.innerHTML = '<h5 class="riskLevelH"><i class="fas fa-square AMSM"></i> Risk Level A</h5> <p>7 - 20 average daily cases per million'
+    } else if (dailyCases >= 20 && dailyCases < 40){
+      valMSMcaseResult.innerHTML = '<h5 class="riskLevelH"><i class="fas fa-square BMSM"></i> Risk Level B</h5> <p>20 - 40 average daily cases per million'
+    } else if (dailyCases >= 40 && dailyCases < 70){
+      valMSMcaseResult.innerHTML = '<h5 class="riskLevelH"><i class="fas fa-square CMSM"></i> Risk Level C</h5> <p>40 - 70 average daily cases per million'
+    } else if (dailyCases >= 70 && dailyCases < 150){
+      valMSMcaseResult.innerHTML = '<h5 class="riskLevelH"><i class="fas fa-square DMSM"></i> Risk Level D</h5> <p>70 - 150 average daily cases per million'
+    } else if (dailyCases >= 150){
+      valMSMcaseResult.innerHTML = '<h5 class="riskLevelH"> <i class="fas fa-square EMSM"></i> Risk Level E</h5> <p>&#8805; 150 average daily cases per million'
+    }
+
+    if (roundedW < 10){
+      valCDCcaseResult.innerHTML = '<h5 class="riskLevelH"><i class="fas fa-square LowCDC"></i> Low</h5> <p>< 10 new cases per 100,000 over last 7 days</p>'
+    } else if (roundedW >= 10 && roundedW < 50){
+      valCDCcaseResult.innerHTML = '<h5 class="riskLevelH"><i class="fas fa-square ModerateCDC"></i> Moderate</h5><p>10 - 49 new cases per 100,000 over last 7 days</p>'
+    } else if (roundedW >= 50 && roundedW < 100){
+      valCDCcaseResult.innerHTML = '<h5 class="riskLevelH"><i class="fas fa-square SubstantialCDC"></i> Substantial</h5><p>50 - 99 new cases per 100,000 over last 7 days</p>'
+    } else if (roundedW >= 100){
+      valCDCcaseResult.innerHTML = '<h5 class="riskLevelH"><i class="fas fa-square HighCDC"></i> High</h5><p>&#8805; 100 new cases per 100,000 over last 7 days</p>'
+    }
+  }
+  // document.querySelector('#caseForm').reset()
+}
+
+function onPosRiskLevelChange(){
+  valCDCposResult = document.querySelector("#cdcPosResult");
+  valMSMposResult = document.querySelector("#msmPosResult");
+
+
+  let posTests = document.querySelector("#inputfieldPercentPos").value
+  // console.log(posTests)
+  if (posTests < 5){
+    valCDCposResult.innerHTML = '<h5 class="riskLevelH"><i class="fas fa-square LowCDC"></i> Low</h5> <p>< 5% positive of last 7 days of tests</p>'
+  } else if (posTests >= 5 && posTests < 8){
+    valCDCposResult.innerHTML = '<h5 class="riskLevelH"><i class="fas fa-square ModerateCDC"></i> Moderate</h5><p>5 - 8% positive of last 7 days of tests</p>'
+  } else if (posTests >= 8 && posTests < 10){
+    valCDCposResult.innerHTML = '<h5 class="riskLevelH"><i class="fas fa-square SubstantialCDC"></i> Substantial</h5><p>8 - 10% positive of last 7 days of tests</p>'
+  } else if (posTests >= 10){
+    valCDCposResult.innerHTML = '<h5 class="riskLevelH"><i class="fas fa-square HighCDC"></i> High</h5><p>&#8805; 10% positive of last 7 days of tests</p>'
+  }
+
+  if (posTests < 3){
+    valMSMposResult.innerHTML = '<h5 class="riskLevelH"><i class="fas fa-square LowMSM"></i> Low</h5> <p>< 3% positive of last 7 days of tests</p>'
+  } else if (posTests >=3 && posTests < 7){
+    valMSMposResult.innerHTML = '<h5 class="riskLevelH"><i class="fas fa-square AMSM"></i> Risk Level A</h5> <p>3 - 7% positive of last 7 days of tests</p>'
+  } else if (posTests >= 7 && posTests < 10){
+    valMSMposResult.innerHTML = '<h5 class="riskLevelH"><i class="fas fa-square BMSM"></i> Risk Level B</h5> <p>7 - 10% positive of last 7 days of tests</p>'
+  } else if (posTests >= 10 && posTests < 15){
+    valMSMposResult.innerHTML = '<h5 class="riskLevelH"><i class="fas fa-square CMSM"></i> Risk Level C</h5> <p>10 - 15% positive of last 7 days of tests</p>'
+  } else if (posTests >= 15 && posTests < 20){
+    valMSMposResult.innerHTML = '<h5 class="riskLevelH"><i class="fas fa-square DMSM"></i> Risk Level D</h5> <p>15 - 20% positive of last 7 days of tests</p>'
+  } else  if (posTests >= 20){
+    valMSMposResult.innerHTML = '<h5 class="riskLevelH"><i class="fas fa-square EMSM"></i> Risk Level E</h5> <p>&#8805; 20% positive of last 7 days of tests</p>'
+  }
+
+  // document.querySelector('#posForm').reset()
+
+}
+</script>
+<script>
+$('html').click(function(e) {
+  // if($(e.target).attr('id') === 'inputfieldDailyCase'){
+  //   // console.log("clicked daily cases input field")
+  //   $('#inputfieldWeeklyCase').attr('disabled', true);
+  //   $('#inputfieldWeeklyCase').val('');
+  //   $('#inputfieldDailyCase').attr('disabled', false);
+  //
+  // } else if ($(e.target).attr('id') === 'inputfieldWeeklyCase'){
+  //   // console.log("clicked weekly cases input field")
+  //   $('#inputfieldDailyCase').attr('disabled', true);
+  //   $('#inputfieldDailyCase').val('');
+  //   $('#inputfieldWeeklyCase').attr('disabled', false);
+  //
+  // } else {
+  //   // console.log("clicked neither")
+  //   $('#inputfieldDailyCase').attr('disabled', false);
+  //   $('#inputfieldWeeklyCase').attr('disabled', false);
+  // }
+});
+
+
+$('#inputfieldDailyCase').on('focus', function(){
+  $('#inputfieldDailyCase').removeClass('calculatedResult')
+})
+$('#inputfieldWeeklyCase').on('focus', function(){
+  $('#inputfieldWeeklyCase').removeClass('calculatedResult')
+})
+
+$('input').on('input', function(){
+  console.log("input updated")
+  let overallMSM = document.querySelector("#overallMSMRisk")
+  let overallCDC = document.querySelector("#overallCDCRisk")
+  let msmCaseResult = document.querySelector("#msmCaseResult")
+  let msmPosResult = document.querySelector("#msmPosResult")
+  let cdcCaseResult = document.querySelector("#cdcCaseResult")
+  let cdcPosResult = document.querySelector("#cdcPosResult")
+    if (msmPosResult.innerHTML.includes('N/A') || msmCaseResult.innerHTML.includes('N/A')){
+      console.log("one of them is N/A")
+    } else {
+      let msmRanking = ["Low", "A", "B", "C", "D", "E"]
+      let msmCResult = ''
+      let msmPResult = ''
+      if (msmCaseResult.innerHTML.includes("Low")){
+        msmCResult = "Low"
+      } else if (msmCaseResult.innerHTML.includes("Risk Level A")){
+        msmCResult = "A"
+      } else if (msmCaseResult.innerHTML.includes("Risk Level B")){
+        msmCResult = "B"
+      } else if (msmCaseResult.innerHTML.includes("Risk Level C")){
+        msmCResult = "C"
+      } else if (msmCaseResult.innerHTML.includes("Risk Level D")){
+        msmCResult = "D"
+      } else if (msmCaseResult.innerHTML.includes("Risk Level E")){
+        msmCResult = "E"
+      }
+
+      if (msmPosResult.innerHTML.includes("Low")){
+        msmPResult = "Low"
+      } else if (msmPosResult.innerHTML.includes("Risk Level A")){
+        msmPResult = "A"
+      } else if (msmPosResult.innerHTML.includes("Risk Level B")){
+        msmPResult = "B"
+      } else if (msmPosResult.innerHTML.includes("Risk Level C")){
+        msmPResult = "C"
+      } else if (msmPosResult.innerHTML.includes("Risk Level D")){
+        msmPResult = "D"
+      } else if (msmPosResult.innerHTML.includes("Risk Level E")){
+        msmPResult = "E"
+      }
+    
+      if (msmRanking.indexOf(msmPResult) >= msmRanking.indexOf(msmCResult)){
+        let iconClass = `"fas fa-square ${msmPResult}MSM"` 
+        let rLevel = "Risk Level " + msmPResult
+        overallMSM.innerHTML = `<i class=${iconClass}></i><strong> ${rLevel}</strong>`
+      } else if (msmRanking.indexOf(msmPResult) < msmRanking.indexOf(msmCResult)){
+        let iconClass = `"fas fa-square ${msmCResult}MSM"` 
+        let rLevel = "Risk Level " + msmCResult
+        overallMSM.innerHTML = `<i class=${iconClass}></i><strong> ${rLevel}</strong>`
+      }
+    }
+
+    if (cdcPosResult.innerHTML.includes('N/A') || cdcCaseResult.innerHTML.includes('N/A')){
+    } else {
+      let cdcRanking = ["Low", "Moderate", "Substantial", "High"]
+      let cdcCResult = ''
+      let cdcPResult = ''
+      if (cdcCaseResult.innerHTML.includes("Low")){
+        cdcCResult = "Low"
+      } else if (cdcCaseResult.innerHTML.includes("Moderate")){
+        cdcCResult = "Moderate"
+      } else if (cdcCaseResult.innerHTML.includes("Substantial")){
+        cdcCResult = "Substantial"
+      } else if (cdcCaseResult.innerHTML.includes("High")){
+        cdcCResult = "High"
+      }
+
+      if (cdcPosResult.innerHTML.includes("Low")){
+        cdcPResult = "Low"
+      } else if (cdcPosResult.innerHTML.includes("Moderate")){
+        cdcPResult = "Moderate"
+      } else if (cdcPosResult.innerHTML.includes("Substantial")){
+        cdcPResult = "Substantial"
+      } else if (cdcPosResult.innerHTML.includes("High")){
+        cdcPResult = "High"
+      }
+      if (cdcRanking.indexOf(cdcPResult) >= cdcRanking.indexOf(cdcCResult)){
+        let iconClass = `"fas fa-square ${cdcPResult}CDC"`
+        let rLevel = cdcPResult
+        overallCDC.innerHTML = `<i class=${iconClass}></i><strong> ${rLevel}</strong>`
+      } else if (cdcRanking.indexOf(cdcPResult) < cdcRanking.indexOf(cdcCResult)){
+        let iconClass = `"fas fa-square ${cdcCResult}CDC"`
+        let rLevel = cdcCResult
+        overallCDC.innerHTML = `<i class=${iconClass}></i><strong> ${rLevel}</strong>`
+      }
+    }
+})
+</script>
+</body>
 </html>

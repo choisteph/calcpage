@@ -31,6 +31,9 @@ h2{
 }
 
 /* page styling */
+.mainContentRow{
+  padding: 15px;
+}
 
 .topheader{
   font-size: 1.9rem;
@@ -39,7 +42,7 @@ h2{
 }
 
 #thresholdComparison{
-  width: 100%;
+  width: 75%;
 }
 
 .calcHeader{
