@@ -233,7 +233,7 @@
               <tr>
                   <td>
                       <h3 class="calcHeader"><strong>Cases</strong></h3>
-                      <form id="caseForm" onsubmit="calculateCaseRiskLevel()">
+                      <form id="caseForm">
                           <div class="form-group row">
                               <div class="col-md-12 input-container">
                                   <div class="form-group">
@@ -266,7 +266,7 @@
               <tr>
                   <td>
                       <h3 class="calcHeader"><strong>Test Positivity</strong></h3>
-                      <form id="posForm" onsubmit="calculatePosRiskLevel()">
+                      <form id="posForm">
                           <div class="form-group row">
                               <div class="col-md-12 input-container">
                                   <div class="form-group">
@@ -482,7 +482,7 @@ $('#inputfieldWeeklyCase').on('focus', function(){
 })
 
 $('input').on('input', function(){
-  console.log("input updated")
+  // console.log("input updated")
   let overallMSM = document.querySelector("#overallMSMRisk")
   let overallCDC = document.querySelector("#overallCDCRisk")
   let msmCaseResult = document.querySelector("#msmCaseResult")
@@ -490,7 +490,7 @@ $('input').on('input', function(){
   let cdcCaseResult = document.querySelector("#cdcCaseResult")
   let cdcPosResult = document.querySelector("#cdcPosResult")
     if (msmPosResult.innerHTML.includes('N/A') || msmCaseResult.innerHTML.includes('N/A')){
-      console.log("one of them is N/A")
+      // console.log("one of them is N/A")
     } else {
       let msmRanking = ["Low", "A", "B", "C", "D", "E"]
       let msmCResult = ''
@@ -569,6 +569,8 @@ $('input').on('input', function(){
       }
     }
 })
+
+$('form').submit(false);
 </script>
 </body>
 </html>
