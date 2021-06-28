@@ -482,7 +482,7 @@ $('#inputfieldWeeklyCase').on('focus', function(){
 })
 
 $('input').on('input', function(){
-  // console.log("input updated")
+  console.log("input updated")
   let overallMSM = document.querySelector("#overallMSMRisk")
   let overallCDC = document.querySelector("#overallCDCRisk")
   let msmCaseResult = document.querySelector("#msmCaseResult")
@@ -567,6 +567,12 @@ $('input').on('input', function(){
         let rLevel = cdcCResult
         overallCDC.innerHTML = `<i class=${iconClass}></i><strong> ${rLevel}</strong>`
       }
+    }
+
+    if ($(this).val().length === 0){
+      overallCDC.innerHTML = '<i class="fas fa-square unknownMSM"></i><strong> N/A</strong>'
+      overallMSM.innerHTML = '<i class="fas fa-square unknownMSM"></i><strong> N/A</strong>'
+
     }
 })
 
