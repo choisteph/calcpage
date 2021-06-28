@@ -572,22 +572,22 @@ $('input').on('input', function(){
     if ($(this).val().length === 0){
       overallCDC.innerHTML = '<i class="fas fa-square unknownMSM"></i><strong> N/A</strong>'
       overallMSM.innerHTML = '<i class="fas fa-square unknownMSM"></i><strong> N/A</strong>'
-      console.log("this id", $(this).attr('id'))
+      // console.log("this id", $(this).attr('id'))
       if ($(this).attr('id').includes("Percent")){
-        console.log("this includes percent")
+        // console.log("this includes percent")
         cdcPosResult.innerHTML = '<h5 class="riskLevelH"><i class="fas fa-square unknownMSM"></i><strong> N/A</strong></h5>Enter a value'
         msmPosResult.innerHTML = '<h5 class="riskLevelH"><i class="fas fa-square unknownMSM"></i><strong> N/A</strong></h5>Enter a value'
       }
       if ($(this).attr('id').includes("Case")){
-        console.log("this includes Case")
+        // console.log("this includes Case")
         cdcCaseResult.innerHTML = '<h5 class="riskLevelH"><i class="fas fa-square unknownMSM"></i><strong> N/A</strong></h5>Enter a value'
         msmCaseResult.innerHTML = '<h5 class="riskLevelH"><i class="fas fa-square unknownMSM"></i><strong> N/A</strong></h5>Enter a value'
 
         if ($(this).attr('id').includes("Daily")){
-          console.log("contains daily")
+          // console.log("contains daily")
           $("#inputfieldWeeklyCase").val('')
         } else {
-          console.log("contains weekly")
+          // console.log("contains weekly")
           $("#inputfieldDailyCase").val('')
 
         }
