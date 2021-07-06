@@ -31,107 +31,126 @@ h2{
 }
 
 /* page styling */
-
-.topheader{
-  font-size: 1.9rem;
+.rlcH{
+  font-size:0.9rem;
   font-weight: 700;
-  padding: 15px 0px;
+}
+.rlH{
+  font-size: 1.4rem;
+  font-weight: 900;  
 }
 
-#thresholdComparison{
+.riskSwitch{
+  margin: 0;
+  padding: 15px;
+}
+.riskBox{
+  padding: 15px;
+  margin: 15px;
+  /* border: 3px solid gray; */
+  border-radius: 25px;
+  -moz-box-shadow: 0 0 10px 10px rgba(204, 204, 204, 0.6);
+  -webkit-box-shadow: 0 0 10px 10px rgba(204, 204, 204, 0.6);
+  box-shadow: 0 0 10px 10px rgba(204, 204, 204, 0.6);
+}
+
+.bufferArrow{
+  font-size: 3rem;
+  padding: 15px;
+}
+
+.explainConversion{
+  padding: 15px;
+}
+
+.aboutNumbers{
+  margin: 0;
+  padding: 15px;
+}
+
+.conversionDiv{
   width: 100%;
 }
 
-.calcHeader{
-  font-size: 1.4rem;
+.calcCaseIcon{
+  font-size: 3rem;
+  padding: 5px;
+}
+
+.calcCaseTxt{
+  font-size: 1rem;
   font-weight: 500;
-  margin: 0;
-
+  margin:15px;
 }
-.aside{
-  font-size: .9rem;
-}
-
-.calcDiv{
-  padding: 5px 0px;
+.operation{
+  padding: 15px;
+  font-size: 3rem;
+  font-weight: 700;
 }
 
-form{
-  padding: 0px 10px;
+.msmColor{
+  color: #0083B7;
+}
+.purpColor{
+  color: #793F8C;
+}
+.redColor{
+  color: #F12C29;
 }
 
-.form-group{
-  padding: 5px 0px;
+.cdcColor{
+  color: #00539E;
 }
 
-#or{
+.riskUnit{
+  padding:15px;
+  margin: 15px;
+  border-radius: 25px;
+}
+.msmUnit{
+  background-color: rgba(0,131,183,0.05);
+}
+
+.purpUnit{
+  background-color: rgba(121,63,140,0.05);
+}
+
+.redUnit{
+  background-color: rgba(241,44,41,0.05);
+}
+
+.cdcUnit{
+  background-color:rgba(0,83,158,0.05)
+}
+
+.divider{
+  border-top: 3px solid black;
+  width: 100%;
+}
+
+.mathNum{
+  font-size: 3rem;
   font-weight: 700;
   margin: 0;
-  padding: 10 0;
-}
-.resultHead{
-  font-size: 1.2rem;
-
 }
 
-.resultsCol{
-  background-color: #0485bd0a;
-  padding: 3px;
+.multiplicationDiv{
+  width: 100%;
 }
-
-.submitbutton{
-  margin: 15px 0px;
-  border: 1.5px solid gray;
-  /* color: #0487bd; */
+.multiplicationDiv > *{
+  padding: 0px 5px;
+  width: 100%;
+  margin: 0;
 }
-
-.submitbutton:hover{
-  border: 2px solid black;
-}
-
-.riskLevelH{
+.multiply{
+  /* width: 100%; */
   font-weight: 700;
-  font-size:1rem;
+  font-size: 3rem;
 }
 
-#cdcCaseResult, #msmCaseResult, #cdcPosResult, #msmPosResult{
-  padding: 0px 10px;
-}
-
-.calculatedResult{
-  font-weight: 500; 
-  font-style: italic; 
-  background-color: #0485bd0a;
-}
-
-.lowCDC{
-  color: #749cd2;
-}
-.modCDC{
-  color: #f6eb14;
-}
-.subCDC{
-  color: #f8991d;
-}
-.highCDC{
-  color: #ed2024;
-}
-
-.lowMSM{
-  color: #bed5e6;
-}
-.aMSM{
-  color: #a0bddc;
-}
-.bMSM{
-  color: #8b96c8;
-}
-.cMSM{
-  color: #8c6db0;
-}
-.dMSM{
-  color: #8a4399;
-}
-.eMSM{
-  color: #6a2469;
+.descriptor{
+  width: 100%;
+  font-size:0.9rem;
+  font-weight: 500;
+  /* line-height: 0.9rem; */
 }
