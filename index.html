@@ -32,7 +32,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Calculating Risk Levels</a>
+              <a class="nav-link" aria-current="page" href="tocdc.html">To CDC Levels</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="toMSM.html">To MSM Levels</a>
             </li>
             <li class="nav-item me-auto">
               <a class="nav-link" aria-label="back to dashboard"  href="https://mistartmap.info/" target="
@@ -42,85 +45,6 @@
         </div>
       </div>
     </nav>
-
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-sm-12 text-center">
-            <h1 class="topheader">Welcome to the MI Safe Start Map Risk Calculator</h1>
-            <p class="aside">A calculator to translate between the CDC Transmission indicators and the MI Safe Start Map Risk Levels. </p>
-            <p class="aside">These algorithms both use <b>the worse level</b> of the cases indicator and the test positivity indicator to calculate the final result</p>
-          </div> <!--close col-12-->
-        </div> <!--close row-->
-        <main id="maincontent">
-          <div class="row mainContentRow">
-            <div class="col-md-1 bufferCol"></div>
-            <div class="col-md-5 calculatorCol">
-              <div class="calculatorDiv">
-                <div class="calcDiv">
-                  <h3 class="calcHeader">Cases</h3>
-                  <form id="caseForm" onsubmit="calculateCaseRiskLevel()">
-                    <div class="form-group row">
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label for="inputWeeklyCase">Weekly Cases per 100,000 Population</label>
-                          <input type = "number" id="inputfieldWeeklyCase" class="form-control" min="0" placeholder="Enter value..." aria-label="weekly cases per 100 thousand population">
-                          </input>
-                        </div> <!--close form-group-->
-                        <p id="or">or</p>
-                        <div class="form-group">
-                          <label for="inputDailyCase">Daily Cases per Million Population (7-Day Average)</label>
-                          <input type = "number" id="inputfieldDailyCase" class="form-control" min="0" placeholder="Enter value..." aria-label="daily cases per million population">
-                          </input>
-                        </div> <!--close form-group-->
-                        <button type="submit" class = "btn submitbutton" onclick = "calculateCaseRiskLevel()">Calculate Risk Level</button>
-                      </div> <!--close col-6-->
-                      <div class="col-md-6 resultsCol">
-                        <h4 class="resultHead">CDC Indicator Results:</h4>
-                          <div id="cdcCaseResult"></div>
-                        <h4 class="resultHead">MI Safe Start Map Results:</h4>
-                          <div id="msmCaseResult"></div>    
-                      </div> <!--close col-6 resultsCol-->
-                    </div> <!--close form-row-->
-                    </form>
-                </div> <!--close calcDiv-->
-                <div class="calcDiv">
-                  <h3 class="calcHeader">Test Positivity</h3>
-                  <form id="posForm" onsubmit="calculatePosRiskLevel()">
-                    <div class="form-group row">
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label for="inputPercentPos">Percent Positive Tests</label>
-                          <div class="input-group mb-3">
-                            <input type="number" id="inputfieldPercentPos" class="form-control" aria-label="percent positive tests" placeholder="Enter value..." min="0" max="100">
-                              <div class="input-group-append">
-                                <span class="input-group-text">%</span>
-                              </div>
-                            </input>
-                          </div> <!--close input-group-->
-                        </div> <!--close form-group-->
-                        <button type="submit" class = "btn submitbutton" onclick = "calculatePosRiskLevel()">Calculate Risk Level</button>
-                      </div> <!-- col-5-->
-                      <div class="col-md-6 resultsCol">
-                        <h4 class="resultHead">CDC Indicator Results:</h4>
-                          <div id="cdcPosResult"></div>
-                        <h4 class="resultHead">MI Safe Start Map Results:</h4>
-                          <div id="msmPosResult"></div>  
-                      </div> <!--close col-6 resultsCol-->
-                    </div> <!--close form-row-->
-                </form> <!--close form-->
-                </div> <!--close calcDiv-->
-              </div> <!--close calculatorDiv-->
-            </div> <!--close col-6 calculatorCol-->
-            <div class="col-md-5 explainerCol text-center d-flex align-items-center justify-content-center">
-              <div class="thresholdsDiv">
-                <h2>Comparing new CDC school thresholds to MI levels</h2>
-                <img id="thresholdComparison" src="img/crpp.png" alt="a comparison between the case and percent positive thresholds used by the CDC and by MI Safe Start Map">
-              </div>
-            </div> <!--close col-5 explainerCol-->
-            <div class="col-md-1 bufferCol"></div>
-          </div> <!--close row mainContentRow-->
-        </main> <!--close main-->
-      </div> <!--close container-fluid-->
      <!-- BOOSTRAP JS -->
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
      <!-- JQUERY -->
