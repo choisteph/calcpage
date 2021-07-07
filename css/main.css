@@ -68,7 +68,12 @@ h2{
   padding: 15px;
 }
 
-.conversionDiv{
+.cdcImgExplainer{
+  width: 100%;
+  padding: 15px;
+}
+
+/* .conversionDiv{
   width: 100%;
 }
 
@@ -143,7 +148,6 @@ h2{
   margin: 0;
 }
 .multiply{
-  /* width: 100%; */
   font-weight: 700;
   font-size: 3rem;
 }
@@ -152,5 +156,4 @@ h2{
   width: 100%;
   font-size:0.9rem;
   font-weight: 500;
-  /* line-height: 0.9rem; */
-}
+} */

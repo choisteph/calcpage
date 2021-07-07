@@ -34,9 +34,6 @@
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="tocdc.html">To CDC Levels</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="tomsm.html">To MSM Levels</a>
-            </li>
             <li class="nav-item me-auto">
               <a class="nav-link" aria-label="back to dashboard"  href="https://mistartmap.info/" target="
               _blank">Back to the Dashboard</a>
@@ -85,21 +82,21 @@
                 <p class="aboutNumbers">We use our MI Start Map numbers and translate them to match the CDC's metrics. The policy recommendations from MI Start Map align with the CDC's overall dashboard and our data remains accurate. Here's an example of how we translate numbers for the Cases metric:</p>
               </div> <!--close col-12-->
             </div> <!--close row explainConversion-->
-            <div class="row conversionsVis d-flex align-items-center justify-cotntent-center">
+            <img class ="cdcImgExplainer" src='img/calculatorconversion.png' alt="an image that shows that multiplying the MIStartMap 7-Day average cases per million by 7 and dividing by 10 will result in the CDC total cases in a week per 100k population">
+            <!-- <div class="row conversionsVis d-flex align-items-center justify-cotntent-center">
               <div class="col-5">
                 <div class="conversionDiv text-center">
                   <div class="riskUnit msmUnit  d-flex flex-column align-items-center justify-content-center">
                     <div class="iconDiv d-flex align-items-center justify-content-center">
                       <i class="fas fa-calendar-day msmColor calcCaseIcon"></i>
-                      <!-- <i class="fas fa-chart-line msmColor calcCaseIcon"></i> -->
                     </div>
                     <p class="msmColor calcCaseTxt">MI Start Map 7-Day Average Cases per Million</p>
-                  </div> <!--close riskUnit-->
-                </div> <!--close conversionDiv-->
-              </div> <!--close col-5-->
+                  </div>
+                </div> 
+              </div> 
               <div class="col-2 d-flex align-items-center justify-content-center">
                 <p class="operation">=</p>
-              </div> <!--close col-2-->
+              </div> 
               <div class="col-5">
                 <div class="conversionDiv text-center">
                   <div class="riskUnit purpUnit d-flex flex-column align-items-center justify-content-center">
@@ -107,46 +104,45 @@
                       <i class="fas fa-calendar-week purpColor calcCaseIcon"></i>
                     </div>
                     <p class="purpColor calcCaseTxt"># Cases in Week per Million Population</p>
-                  </div> <!--close riskUnit-->
+                  </div>
                   <div class="divider d-flex flex-column align-items-center justify-content-center">
                     <p class="mathNum d-inline">7</p> 
                     <p class="descriptor d-inline">(days in a week)</p>
-                  </div> <!--close divider-->
-                </div> <!--close conversionDiv-->
-              </div> <!--close col-5-->
-            </div> <!--close row conversionsVis-->
+                  </div>
+                </div>
+              </div> 
+            </div>
             <div class="row conversionsVis d-flex align-items-center justify-cotntent-center">
               <div class="col-5">
                 <div class="conversionDiv text-center d-flex align-items-center justify-content-between">
                   <div class="riskUnit purpUnit d-flex flex-column align-items-center justify-content-center">
                     <div class="iconDiv d-flex align-items-center justify-content-center">
-                      <!-- <i class="fas fa-users purpColor calcCaseIcon "></i> -->
                       <i class="fas fa-calendar-day purpColor calcCaseIcon"></i>
                     </div>
                     <p class="purpColor calcCaseTxt"># Average Daily Cases in Week per Million Population</p>
-                  </div> <!--close riskUnit-->
+                  </div>
                   <p class="multiply">x</p>
                   <div class="multiplicationDiv text-center d-flex flex-column align-items-center justify-content-center">
                     <p class="mathNum">7</p>
                     <p class="descriptor">(days in a week)</p>
                   </div>
-                </div> <!--close conversionDiv-->
-              </div> <!--close col-5-->
+                </div>
+              </div>
               <div class="col-2 d-flex align-items-center justify-content-center">
                 <p class="operation">=</p>
-              </div> <!--close col-2-->
+              </div>
               <div class="col-5">
                 <div class="conversionDiv text-center d-flex flex-column align-items-center justify-content-center">
                   <div class="riskUnit redUnit">
                     <div class="iconDiv d-flex align-items-center justify-content-center">
-                      <!-- <i class="fas fa-users redColor calcCaseIcon"></i> -->
+
                       <i class="fas fa-calendar-week redColor calcCaseIcon"></i>
                     </div>
                     <p class="redColor calcCaseTxt"># Total Cases in Week per Million Population</p>
-                  </div> <!--close riskUnit-->
-                </div> <!--close conversionDiv-->
-              </div> <!--close col-5-->
-            </div> <!--close row conversionsVis-->
+                  </div>
+                </div>
+              </div>
+            </div>
             <div class="row conversionsVis d-flex align-items-center justify-cotntent-center">
               <div class="col-5">
                 <div class="conversionDiv text-center">
@@ -155,16 +151,16 @@
                       <i class="fas fa-users redColor calcCaseIcon"></i>
                     </div>
                     <p class="redColor calcCaseTxt"># Total Cases in Week per Million Population</p>
-                  </div> <!--close riskUnit-->
+                  </div> 
                   <div class="divider d-flex flex-column align-items-center justify-content-center">
                     <p class="mathNum">10</p> 
                     <p class="descriptor">(to convert 1 million to 100k)</p>
-                  </div> <!--close divider-->
-                </div> <!--close conversionDiv-->
-              </div> <!--close col-5-->
+                  </div> 
+                </div> 
+              </div> 
               <div class="col-2 d-flex align-items-center justify-content-center">
                 <p class="operation">=</p>
-              </div> <!--close col-2-->
+              </div> 
               <div class="col-5">
                 <div class="conversionDiv text-center d-flex flex-column align-items-center justify-content-center">
                   <div class="riskUnit cdcUnit">
@@ -172,10 +168,10 @@
                       <i class="fas fa-user cdcColor calcCaseIcon"></i>
                     </div>
                     <p class="cdcColor calcCaseTxt">CDC # Total Cases in Week per 100k Population</p>
-                  </div> <!--close riskUnit-->
-                </div> <!--close conversionDiv-->
-              </div> <!--close col-5-->
-            </div> <!--close row conversionsVis-->
+                  </div>
+                </div>
+              </div>
+            </div> -->
           </div> <!--close col-10-->
           <div class="col-md-1 bufferCol"></div>
         </div> <!--close row-->
