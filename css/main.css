@@ -63,8 +63,8 @@ td{
 
 
 .greyOut{
-  color: rgb(90, 90, 90);
-  background-color: #dddddd;
+  color: rgb(29, 29, 29);
+  background-color: #7e7e7e;
 }
 
 .greyOut > a {
@@ -103,4 +103,41 @@ td{
 .itemLink{
   font-size: 1.2rem;
   font-weight: 700;
+}
+
+/* arrow stuff */
+#arrowTable{
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 15px;
+}
+
+
+.arrow {
+  width:100%;
+  /* margin: 50px auto; */
+}
+
+.line {
+  width:96%;
+  /* background: rgb(248,238,255);
+  background: linear-gradient(90deg, rgba(248,238,255,1) 0%, rgba(115,57,156,1) 100%); */
+  background: rgb(0,125,249);
+background: linear-gradient(90deg, rgba(0,125,249,1) 0%, rgba(255,247,60,1) 33.33%, rgba(255,103,56,1) 66.66%, rgba(255,13,28,1) 100%);
+  height:10px;
+  float:left;
+}
+.point {	
+  width: 0; 
+  height: 0; 
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  /* border-left: 30px solid rgba(115,57,156,1); */
+  border-left: 30px solid rgba(255,13,28,1);
+  float:right;
+}
+
+.tdStrategy{
+  border: 1px solid black
 }
