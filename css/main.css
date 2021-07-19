@@ -1,159 +1,106 @@
 body{
   font-family: Montserrat,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight:400;
 }
 
-h2{
-  font-size: 1.5rem;
-}
-
-/* navigation bar styling */
-#sitenav{
-  background-color:#0487bd;
-}
-#navbrand-img{
-  height: 32px;
-  padding: 0;
-  margin: 0;
-  padding-right: 10px;
-}
-.navbar-dark .navbar-nav .nav-link{
-  color: rgba(255,255,255,0.8)
-}
-
-.nav-link:hover{
-  background-color: #006687;
-}
-
-.navbar-brand{
-  font-weight: 500;
-}
-
-/* page styling */
-.rlcH{
-  font-size:0.9rem;
-  font-weight: 700;
-}
-.rlH{
-  font-size: 1.4rem;
-  font-weight: 900;  
-}
-
-.riskSwitch{
-  margin: 0;
-  padding: 15px;
-}
-.riskBox{
-  padding: 15px;
-  margin: 15px;
-  /* border: 3px solid gray; */
-  border-radius: 25px;
-  -moz-box-shadow: 0 0 10px 10px rgba(204, 204, 204, 0.6);
-  -webkit-box-shadow: 0 0 10px 10px rgba(204, 204, 204, 0.6);
-  box-shadow: 0 0 10px 10px rgba(204, 204, 204, 0.6);
-}
-
-.bufferArrow{
-  font-size: 3rem;
-  padding: 15px;
-}
-
-.explainConversion{
-  padding: 15px;
-}
-
-.aboutNumbers{
-  margin: 0;
-  padding: 15px;
-}
-
-.cdcImgExplainer{
-  width: 100%;
-  padding: 15px;
-}
-
-/* .conversionDiv{
-  width: 100%;
-}
-
-.calcCaseIcon{
-  font-size: 3rem;
-  padding: 5px;
-}
-
-.calcCaseTxt{
-  font-size: 1rem;
-  font-weight: 500;
-  margin:15px;
-}
-.operation{
-  padding: 15px;
-  font-size: 3rem;
+.emphasized{
   font-weight: 700;
 }
 
-.msmColor{
-  color: #0083B7;
-}
-.purpColor{
-  color: #793F8C;
-}
-.redColor{
-  color: #F12C29;
+.listedRecs > *{
+  padding: 3px 0px;
 }
 
-.cdcColor{
-  color: #00539E;
+
+/* table styles */
+th{
+  padding: 10px;
 }
 
-.riskUnit{
-  padding:15px;
-  margin: 15px;
+td{
+  padding: 10px;
+}
+
+
+.cdcBlue{
+  color: white;
+  background-color: #007DF9;
+}
+
+.blueOverlay{
+  color: #e9e9e9;
+  background-color: #0069BF;
+}
+
+.cdcYellow{
+  background-color: #FFF73C;
+}
+
+.yellowOverlay{
+  background-color: #BFB52E;
+}
+
+.cdcOrange{
+  color: white;
+  background-color: #FF6738;
+}
+
+.orangeOverlay{
+  color: #e9e9e9;
+  background-color: #BF4A2B;
+}
+
+.cdcRed{
+  color: white;
+  background-color: #FF0D1C;
+}
+
+.redOverlay{
+  color: #e9e9e9;
+  background-color: #BF0C1D;
+}
+
+
+.greyOut{
+  color: rgb(90, 90, 90);
+  background-color: #dddddd;
+}
+
+.greyOut > a {
+  color: #3c629b;
+}
+
+
+/* for info vis */
+.itemsRow{
+  padding: 15px 0px;
+}
+.itemDiv{
+  padding: 15px;
   border-radius: 25px;
 }
-.msmUnit{
-  background-color: rgba(0,131,183,0.05);
+#cdcDiv{
+  background-color: #f0f5ff;
+  border: 1px solid #f0f5ff;
+}
+#cohortDiv, #maskDiv, #limitDiv, #screeningDiv{
+  background-color: #eeeeee;
+  border: 1px solid #eeeeee;
 }
 
-.purpUnit{
-  background-color: rgba(121,63,140,0.05);
+.itemImgTop{
+  width: 30%
 }
 
-.redUnit{
-  background-color: rgba(241,44,41,0.05);
-}
-
-.cdcUnit{
-  background-color:rgba(0,83,158,0.05)
-}
-
-.divider{
-  border-top: 3px solid black;
+.itemImg{
   width: 100%;
 }
-
-.mathNum{
-  font-size: 3rem;
+.itemLinkTop{
+  font-size: 1.8rem;
   font-weight: 700;
-  margin: 0;
 }
-
-.multiplicationDiv{
-  width: 100%;
-}
-.multiplicationDiv > *{
-  padding: 0px 5px;
-  width: 100%;
-  margin: 0;
-}
-.multiply{
+.itemLink{
+  font-size: 1.2rem;
   font-weight: 700;
-  font-size: 3rem;
 }
-
-.descriptor{
-  width: 100%;
-  font-size:0.9rem;
-  font-weight: 500;
-} */
